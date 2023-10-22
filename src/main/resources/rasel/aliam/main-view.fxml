@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rasel.aliam.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <HBox prefHeight="${root.height*0.1}">
+        <Label text="Manage aliases for ~ " wrapText="true">
+            <font>
+                <Font name="System Bold" />
+            </font>
+        </Label>
+        <Label fx:id="defaultShellText" minHeight="-Infinity" wrapText="true">
+            <font>
+                <Font name="System Bold" />
+            </font>
+        </Label>
+    </HBox>
+
+    <TableView fx:id="aliasTable" prefHeight="${root.height*0.7}">
+        <columns>
+            <TableColumn prefWidth="${aliasTable.width*0.1}" style="-fx-alignment: CENTER;" text="Index">
+                <cellValueFactory>
+                    <PropertyValueFactory property="index" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="${aliasTable.width*0.3}" text="Alias">
+                <cellValueFactory>
+                    <PropertyValueFactory property="alias" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="${aliasTable.width*0.5}" text="Command">
+                <cellValueFactory>
+                    <PropertyValueFactory property="command" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="${aliasTable.width*0.1}" style="-fx-alignment: CENTER;" text="Status">
+                <cellValueFactory>
+                    <PropertyValueFactory property="status" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox spacing="20.0" prefHeight="${root.height*0.1}" alignment="CENTER">
+        <TextField prefWidth="${root.width*0.35}" promptText="Alias" />
+        <TextField prefWidth="${root.width*0.5}" promptText="Command" />
+        <Button prefWidth="${root.width*0.15}" text="Add" />
+    </HBox>
+
+    <HBox spacing="20.0" prefHeight="${root.height*0.1}" alignment="CENTER">
+        <HBox spacing="20.0" prefWidth="${root.width*0.5}" alignment="CENTER_LEFT">
+            <Button text="Undo" prefWidth="${root.width*0.1}" />
+            <Button text="Revert all" prefWidth="${root.width*0.15}" />
+        </HBox>
+        <HBox prefWidth="${root.width*0.5}" alignment="CENTER_RIGHT">
+            <Button text="Apply" prefWidth="${root.width*0.15}" />
+        </HBox>
+    </HBox>
+</VBox>
